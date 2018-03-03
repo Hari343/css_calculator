@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>CSS Calculator</title>
+  <style>  
+    html, body {
+      height: 100%;
+      margin: 0;   
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: Georgia, sans-serif; 
+    }
+
+    input[type=text] {
+        width: 100%;
+        margin-top: 2px;   
+        border: none;
+        border-radius: 10px;
+        font-size: 30px;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .app {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      float: left;
+      padding: 25px;
+      font-size: 14px;
+      font-style: italic; 
+      font-weight: bold;         
+      color: #FFFFFF;
+      background-color: #2196F3; 
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column; 
+      justify-content: center;
+      width: 50%;
+      float: right;
+      padding: 15px;
+      font-size: 60px;
+
+    }
+
+    .header {
+      font-size: 30px;
+      font-style: normal;
+      margin-bottom: 10px;
+      align-self: center;
+    }
+
+    .buttons {
+      display: flex;
+      flex-flow: column wrap;
+      align-content: space-between;
+      margin-top: 20px;  
+    }
+
+    .btnrw {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      width: 50%;  
+      border: none;
+      color: white;
+      font-size: 20px;  
+      padding: 14px 28px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s;
+    }
+
+    .add {
+      background-color: #46a049;
+      margin-right: 5px;
+    }
+    .add:hover {
+      transform: translate(-2px, -2px); 
+    }
+
+    .sub {
+      background-color: #e68a00;
+      margin-left: 5px;
+    }
+    .sub:hover {
+      transform: translate(-2px, -2px);
+    }
+
+    .mul {
+      background-color: #1044FF; 
+      margin-right: 5px;
+    }
+    .mul:hover {
+      transform: translate(-2px, -2px); 
+    }
+
+    .div {
+      background-color: #da190b;
+      margin-left: 5px;
+    }
+    .div:hover {
+      transform: translate(-2px, -2px); 
+    }
+ 
+  </style>
+
+  <script>
+    let x, y, z;
+
+    function calc(op) {
+      x = Number(document.getElementById("FN").value);
+      y = Number(document.getElementById("SN").value);
+      z = document.getElementById("ans");
+      switch (op) {
+        case "add": z.innerHTML = x + y; break; 
+        case "sub": z.innerHTML = x - y; break;
+        case "mul": z.innerHTML = x * y; break;
+        case "div": z.innerHTML = x / y; break;
+      }
+    }
+  </script> 
+</head>
+<body>
+  <div class="app">
+    <div class="left">
+      <div class="header">CSS Calculator</div>
+      <div class="form">
+        <form>
+          First Number:<br>
+          <input id="FN" type="text" value=""><br> <br>
+          Second Number:<br>
+          <input id="SN" type="text" value="">
+        </form>
+      </div>
+      <div class="buttons">
+        <div class="btnrw">
+          <input class="btn add" type="button" onclick="calc('add')" value="Add">
+          <input class="btn sub" type="button" onclick="calc('sub')" value="Subtract">
+        </div>
+        <div class="btnrw">
+          <input class="btn mul" type="button" onclick="calc('mul')" value="Multiply">
+          <input class="btn div" type="button" onclick="calc('div')" value="Divide"> 
+        </div>   
+      </div>
+    </div>
+    <div id="ans" class="right">
+      <span>0</span>  
+    </div>
+    <br>
+
+  </div>
+</body>
+</html>
+
+
